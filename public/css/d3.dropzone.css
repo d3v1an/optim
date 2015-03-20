@@ -1,0 +1,3 @@
+.d3drop > input[type="file"] {
+    display: none;
+}

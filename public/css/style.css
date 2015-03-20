@@ -1,0 +1,234 @@
+/* Google font */
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,100,300');
+
+/*
+    Body
+*/
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 13px;
+        background-color: #F1F2F6;
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+
+    /* Main Container */
+    .container {
+    }
+    /* Remove cols padding */
+    .no-gutter > [class*='col-'] {
+        padding-right:0;
+        padding-left:0;
+    }
+
+    /* Jumbotron */
+    .jumbotron > .jumbotron-photo-left img {
+        width: 100%;
+              border-radius: 4px 0 0 0;
+      -webkit-border-radius: 4px 0 0 0;
+         -moz-border-radius: 4px 0 0 0;
+    }
+    .jumbotron > .jumbotron-photo-right img {
+        width: 100%;
+              border-radius: 0 4px 0 0;
+      -webkit-border-radius: 0 4px 0 0;
+         -moz-border-radius: 0 4px 0 0;
+    }
+    
+    /* Title-box */
+    .title-box {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .title-box h1 {
+        font-size: 2em;
+        margin: 0px;
+    }
+
+/*
+    Navbar
+*/
+    /* Navbar Custom */
+    
+    /* NavBar */
+    .navbar-custom {
+        background-color: #F8F8F8;
+        border-color: #E7E7E7;
+    }
+    /* Title */
+    .navbar-custom .navbar-brand {
+        color: #E9573F;
+        font-size: 1.9em;
+    }
+    .navbar-custom .navbar-brand:hover,
+    .navbar-custom .navbar-brand:focus {
+        color: #FC6E51;
+    }
+    /* Link */
+    .navbar-custom .navbar-nav > li > a {
+        color: #E9573F;
+    }
+    .navbar-custom .navbar-nav > li > a:hover,
+    .navbar-custom .navbar-nav > li > a:focus {
+        color: #FC6E51;
+    }
+    .navbar-custom .navbar-nav > .active > a,
+    .navbar-custom .navbar-nav > .active > a:hover,
+    .navbar-custom .navbar-nav > .active > a:focus {
+        color: #F5F7FA;
+        background-color: #FC6E51;
+    }
+    .navbar-custom .navbar-nav > .open > a,
+    .navbar-custom .navbar-nav > .open > a:hover,
+    .navbar-custom .navbar-nav > .open > a:focus {
+        color: #F5F7FA;
+        background-color: #E9573F;
+    }
+
+    /*
+    .navbar-custom .navbar-nav > .disabled > a,
+    .navbar-custom .navbar-nav > .disabled > a:hover,
+    .navbar-custom .navbar-nav > .disabled > a:focus {
+        color: red;
+        background-color: transparent;
+    }
+    */
+
+    /* caret */
+    .navbar-custom .navbar-nav > .dropdown > a .caret {
+        border-top-color: #FC6E51;
+        border-bottom-color: #FC6E51;
+    }
+    .navbar-custom .navbar-nav > .dropdown > a:hover .caret,
+    .navbar-custom .navbar-nav > .dropdown > a:focus .caret {
+        border-top-color: #656D78;
+        border-bottom-color: #656D78;
+    }
+    .navbar-custom .navbar-nav > .open > a .caret,
+    .navbar-custom .navbar-nav > .open > a:hover .caret,
+    .navbar-custom .navbar-nav > .open > a:focus .caret {
+        border-top-color: #434A54;
+        border-bottom-color: #434A54;
+    }
+
+    /* Mobil */
+    .navbar-custom .navbar-toggle {
+        border-color: #FC6E51;
+    }
+    .navbar-custom .navbar-toggle:hover,
+    .navbar-custom .navbar-toggle:focus {
+        background-color: #E9573F;
+    }
+    .navbar-custom .navbar-toggle .icon-bar {
+        background-color: #434A54;
+    }
+    .navbar-custom .navbar-collapse,
+    .navbar-custom .navbar-form {
+        border-color: #E6E9ED;
+    }
+
+    /* Sub Dropdown */
+    .navbar-custom .navbar-nav .open .dropdown-menu {
+        background-color: #434a54;
+        border: none;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+        color: #ffffff;
+        background-color: #434A54;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #ffffff;
+        background-color: #656D78;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #c0c0c0;
+        background-color: #0072ab;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #cccccc;
+        background-color: transparent;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > .divider {
+        background-color: #656d78;
+        border-bottom: none;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > .dropdown-header {
+        padding: 5px 20px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #aab2bd;
+    }
+    
+    /* Social icons */
+    .navbar-custom .navbar-nav.social li {
+        text-align: center;
+    }
+    .navbar-custom .navbar-nav.social li.facebook a {
+        color: #FFFFFF;
+        background-color: #3b5998;
+    }
+    .navbar-custom .navbar-nav.social li.facebook a:hover {
+        background-color: #4e6aa2;
+    }
+    .navbar-custom .navbar-nav.social li.twitter a {
+        color: #FFFFFF;
+        background-color: #55acee;
+    }
+    .navbar-custom .navbar-nav.social li.twitter a:hover {
+        background-color: #6aaddc;
+    }
+    .navbar-custom .navbar-nav.social li.gplus a {
+        color: #FFFFFF;
+        background-color: #dd4b39;
+    }
+    .navbar-custom .navbar-nav.social li.gplus a:hover {
+        background-color: #de6656;
+    }
+
+    /* Custom DropZonejs */
+    .dropzone {
+        width: 100%;
+        min-height: 150px;
+        margin:0 auto;
+        line-height:0.9;
+        background-color: #F5F7FA;
+        border: 10px dashed #E9573F;
+    }
+    .dz-message span {
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+/* Media queries */
+    /* Large desktop */
+    @media (min-width: 1200px) {}
+
+    /* Portrait tablet to landscape and desktop */
+    @media (min-width: 768px) and (max-width: 979px) {}
+
+    /* Landscape phone to portrait tablet */
+    @media (max-width: 767) {}
+
+    /* Landscape phones and down */
+    @media (max-width: 480px) {}
+
+    @media screen and (min-width: 768px) {
+        .navbar-custom {
+            background-color: rgba(255,255,255,0.85);
+            border-color: #E7E7E7;
+        }
+        .navbar-custom .navbar-nav .dropdown .dropdown-menu {
+            min-width: 97px!important;
+        }
+        .navbar-custom .navbar-nav.social li a {
+            padding-left: 0;
+            padding-right: 0;
+            width: 50px;
+            background-color: red;
+        }
+    }

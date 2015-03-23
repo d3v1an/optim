@@ -204,6 +204,12 @@
         font-weight: bold;
     }
 
+    /* Progressbar */
+    .fileprogress,
+    .fileprogress_proc {
+        display: none;
+    }
+
 /* Media queries */
     /* Large desktop */
     @media (min-width: 1200px) {}

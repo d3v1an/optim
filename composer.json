@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-        "way/generators": "~2.0"
+        "way/generators": "~2.0",
+        "iyank4/l4shell": "1.2.2"
 	},
 	"autoload": {
 		"classmap": [

@@ -138,6 +138,7 @@
         {{ HTML::script('js/jquery.ba-throttle-debounce.js') }}
         {{ HTML::script('js/dropzone.js') }}
         {{ HTML::script('js/notifications.min.js') }}
+        {{ HTML::script('js/d3.common.js') }}
     
         <script>
             $(document).ready(function(){
@@ -147,13 +148,13 @@
 
                 // Dropzone class:
                 $("div#dropzone").dropzone({
-                    url: "/jpg",
+                    url: "/ujpg",
                     dictDefaultMessage: '<i class="fa fa-cloud-upload"></i><p><span>Arrastra tu imagen ó da click.</span></p>',
                     autoProcessQueue: true,
                     uploadMultiple: false,
                     previewsContainer: false,
                     maxFiles: 1,
-                    maxFilesize: 5,
+                    maxFilesize: 5, // 5MB
                     dictFileTooBig: 'tb:Imagen demasiado grande',
                     acceptedFiles: 'image/jpeg,image/jpg,image/png',
                     dictInvalidFileType: 'uf:Archivo no soportado',
@@ -174,24 +175,36 @@
                         }
                     },
                     sending: function(file) {
-                        console.log('Cargando archivo al seervidor');
+                        console.log('Cargando archivo al servidor');
                         $('#dropzone').slideUp('slow',function(){
                             $('.fileprogress').slideDown('slow');
                         });
-                        //console.log(file);
                     },
                     uploadprogress: function(file, progress, bytesSent) {
-                        //console.log(file);
                         $('.upprogress').css('width', progress+'%').html('<i class="fa fa-circle-o-notch fa-spin"></i> ' + Math.round(progress) + '% Cargado..');
-                        console.log(progress);//fileprogress_proc
-                        console.log(bytesSent);
+                        //console.log(progress);
+                        //console.log(bytesSent);
                     },
                     complete: function(file) {
-                        // $('.upprogress').css('width', '100%').html('100%');
                         $('.fileprogress').slideUp('slow',function(){
-                            $('.fileprogress_proc').slideDown('slow');
+                            $('.fileprogress_proc').slideDown('slow', function(){
+                                console.log(file);
+                                var _data           = $.parseJSON(file.xhr.response);
+                                
+                                var _status         = _data.status;
+                                var _original_file  = _data.original;
+                                var _original_size  = _data.original_size;
+                                var _uploaded       = _data.uploaded;
+
+                                if(_status==true) {
+                                    $.d3POST('/cjpg',{original:_original_file, original_size:_original_size, uploaded:_uploaded},function(data){
+                                        console.log(data);
+                                    });
+                                } else {
+                                    console.log('Mamo');
+                                }
+                            });
                         });
-                        console.log('Carga de archivo completada');
                     }
                 });
                 

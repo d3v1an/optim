@@ -16,5 +16,17 @@ Route::get('/', function()
 	return View::make('main');
 });
 
+Route::get('/test', function()
+{
+	$command 	= L4shell::get();
+	//$result 	= $command->setCommand('ls %s')->setArguments(array("-lah"))->execute();
+	$result 	= $command->setCommand('which pngquant')->execute();
+
+	return $result;
+});
+
 // Carga de imagenes al servidor
-Route::post('jpg', 'ImageController@uploadJPG');
+Route::post('ujpg', 'ImageController@uploadJPG');
+
+// Carga de imagenes al servidor
+Route::post('cjpg', 'ImageController@compressJPG');

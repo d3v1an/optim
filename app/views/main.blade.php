@@ -106,10 +106,10 @@
                                     <div class="col-md-2 text-center cpt compress-label">
                                         <span class="data_percent"></span> Compresion
                                     </div>
-                                    <div class="col-md-2 cpt">
+                                    <div class="col-md-2 cpt text-center">
                                         Antes : <span class="data_before"></span>
                                     </div>
-                                    <div class="col-md-2 cpt">
+                                    <div class="col-md-2 cpt text-center">
                                         Despues : <span class="data_after"></span>
                                     </div>
                                     <div class="col-md-3">

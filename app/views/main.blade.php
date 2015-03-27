@@ -84,42 +84,53 @@
                     <span class="label label-warning">CSS</span>
                     <span class="label label-success">JS</span>
                 </div>
+
+                <!-- Visualizador -->
+                <div class="row viewrow">
+                    <div class="twentytwenty-container center-block img-viewer">
+                      <img src="" id="left-image">
+                      <img src="" id="right-image">
+                    </div>
+                </div>
+
+                <!-- Post upload -->
+                <div class="row compress-info">
+                    <div class="color-swatches">
+                        <div class="swatches">
+                            <!-- <div class="clearfix">
+                                <div id="left-bar" class="left-bar pull-left light"></div>
+                                <div id="right-bar" class="right-bar pull-right dark"></div>
+                            </div> -->
+                            <div class="infos">
+                                <div class="row">
+                                    <div class="col-md-2 text-center cpt compress-label">
+                                        <span class="data_percent"></span> Compresion
+                                    </div>
+                                    <div class="col-md-2 cpt">
+                                        Antes : <span class="data_before"></span>
+                                    </div>
+                                    <div class="col-md-2 cpt">
+                                        Despues : <span class="data_after"></span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" class="btn btn-success btn-block">Descargar</button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" class="btn btn-primary btn-block">Nuevo archivo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
+                <!-- Dropzone -->
                 <div class="row">
-                    
                     <div class="dropzone" id="dropzone"></div>
                     <div class="progress progress-striped active fileprogress"><div class="progress-bar progress-bar-danger upprogress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div></div>
                     <div class="progress progress-striped active fileprogress_proc"><div class="progress-bar progress-bar-success upprogress_proc" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><i class="fa fa-cog fa-spin"></i> Optimizando imagen..</div></div>
-                    
                 </div>
                 
-                {{--
-                <div class="row">
-                    <div class="twentytwenty-container center-block" style="max-width:600px">
-                      <img src="/img/1_1.jpg">
-                      <img src="/img/1_2.jpg" />
-                    </div>
-                </div>
-                --}}
-                
-                {{--
-                <div class="row no-gutter">
-                    <div class="col-md-6">
-                        <div class="jumbotron">
-                            <div class="jumbotron-photo-left">
-                                <img src="http://bootflat.github.io/img/Jumbotron.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="jumbotron">
-                            <div class="jumbotron-photo-right">
-                                <img src="http://bootflat.github.io/img/slider3.jpg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                --}}
             </div>
             
         </div>
@@ -139,79 +150,7 @@
         {{ HTML::script('js/dropzone.js') }}
         {{ HTML::script('js/notifications.min.js') }}
         {{ HTML::script('js/d3.common.js') }}
-    
-        <script>
-            $(document).ready(function(){
-                
-                // Disable auto discover for all elements:
-                Dropzone.autoDiscover = false;
+        {{ HTML::script('js/d3.js') }}
 
-                // Dropzone class:
-                $("div#dropzone").dropzone({
-                    url: "/ujpg",
-                    dictDefaultMessage: '<i class="fa fa-cloud-upload"></i><p><span>Arrastra tu imagen ó da click.</span></p>',
-                    autoProcessQueue: true,
-                    uploadMultiple: false,
-                    previewsContainer: false,
-                    maxFiles: 1,
-                    maxFilesize: 5, // 5MB
-                    dictFileTooBig: 'tb:Imagen demasiado grande',
-                    acceptedFiles: 'image/jpeg,image/jpg,image/png',
-                    dictInvalidFileType: 'uf:Archivo no soportado',
-                    maxfilesexceeded: function(file) {
-                        displayNotification('error', 'Ha superado el número máximo de imágenes a cargar.', 4000);
-                        this.removeFile(file);
-                    },
-                    error: function(file, response) {
-                        if($.type(response) === "string") {
-                            var err = response.split(':');
-                            if(err[0]=='tb') {
-                                displayNotification('error', file.name + ' ' + err[1], 4000);
-                                this.removeFile(file);
-                            } else if(err[0]=='uf') {
-                                displayNotification('error', file.name + ' ' + err[1], 4000);
-                                this.removeFile(file);
-                            } else console.log(response);
-                        }
-                    },
-                    sending: function(file) {
-                        console.log('Cargando archivo al servidor');
-                        $('#dropzone').slideUp('slow',function(){
-                            $('.fileprogress').slideDown('slow');
-                        });
-                    },
-                    uploadprogress: function(file, progress, bytesSent) {
-                        $('.upprogress').css('width', progress+'%').html('<i class="fa fa-circle-o-notch fa-spin"></i> ' + Math.round(progress) + '% Cargado..');
-                        //console.log(progress);
-                        //console.log(bytesSent);
-                    },
-                    complete: function(file) {
-                        $('.fileprogress').slideUp('slow',function(){
-                            $('.fileprogress_proc').slideDown('slow', function(){
-                                console.log(file);
-                                var _data           = $.parseJSON(file.xhr.response);
-                                
-                                var _status         = _data.status;
-                                var _original_file  = _data.original;
-                                var _original_size  = _data.original_size;
-                                var _uploaded       = _data.uploaded;
-
-                                if(_status==true) {
-                                    $.d3POST('/cjpg',{original:_original_file, original_size:_original_size, uploaded:_uploaded},function(data){
-                                        console.log(data);
-                                    });
-                                } else {
-                                    console.log('Mamo');
-                                }
-                            });
-                        });
-                    }
-                });
-                
-                $(".twentytwenty-container[data-orientation!='vertical']").twentytwenty({default_offset_pct: 0.7});
-                $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({default_offset_pct: 0.3, orientation: 'vertical'});
-               
-            });
-        </script>
   </body>
 </html>

@@ -28,5 +28,8 @@ Route::get('/test', function()
 // Carga de imagenes al servidor
 Route::post('ujpg', 'ImageController@uploadJPG');
 
-// Carga de imagenes al servidor
+// Carga de imagenes al servidor par acompresion
 Route::post('cjpg', 'ImageController@compressJPG');
+
+// Carga de imagenes al servidor
+Route::get('download', 'ImageController@download');

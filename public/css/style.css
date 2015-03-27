@@ -210,6 +210,76 @@
         display: none;
     }
 
+    /* Image viewer */
+    .img-viewer {
+        width: 100%;
+        height: auto;
+        display: none;
+    }
+    /*.img-viewer img {
+        width: 100%;
+        height: 100%;
+    }*/
+    .compress-info {
+        margin-top: 20px;
+        display: none;
+    }
+    .color-swatches .swatches {
+        -webkit-border-radius:4px;
+        -moz-border-radius:4px;
+        border-radius:4px;
+        background-color:#FFF;
+        width:100%;
+        box-shadow:0 1px 2px rgba(0,0,0,.2)
+    }
+    .color-swatches .dark,
+    .color-swatches .light {
+        height:30px
+    }
+    .color-swatches .light {
+        -webkit-border-radius:4px 0 0;
+        -moz-border-radius:4px 0 0;
+        border-radius:4px 0 0
+    }
+    .color-swatches .infos {
+        padding:5px 5px
+    }
+    .color-swatches .infos h4,
+    .color-swatches .infos p {
+        margin:0;
+        padding: 0;
+    }
+    .color-swatches .infos h4 {
+        margin-bottom:3px;
+        font-weight:700;
+        font-size:14px
+    }
+    .color-swatches .infos p {
+        font-size:12px
+    }
+    .compress-label {
+        font-weight: bold;
+    }
+    .left-bar {
+        /*width: 1%!important;*/
+        color: #F5F7FA;
+        background-color:#FC6E51;
+    }
+    .right-bar {
+        /*width: 99%!important;*/
+        background-color:#E9573F;
+    }
+    .btn-download {
+        background-color: #434A54;
+    }
+    .nopadding {
+        padding: 0;
+        margin: 0;
+    }
+    .cpt {
+        margin-top: 7px!important;
+    }
+
 /* Media queries */
     /* Large desktop */
     @media (min-width: 1200px) {}

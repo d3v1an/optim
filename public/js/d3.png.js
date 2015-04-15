@@ -13,8 +13,7 @@ $(document).ready(function(){
 
     // Dropzone class:
     var _dz = new Dropzone("div#dropzone",{
-    //var _dz = $("div#dropzone").dropzone({
-        url: "/ujpg",
+        url: "/upng",
         dictDefaultMessage: '<i class="fa fa-cloud-upload"></i><p><span>Arrastra tu imagen ó da click.</span></p>',
         autoProcessQueue: true,
         uploadMultiple: false,
@@ -22,7 +21,7 @@ $(document).ready(function(){
         maxFiles: 1,
         maxFilesize: 5, // 5MB
         dictFileTooBig: 'tb:La imagen es demasiado grande',
-        acceptedFiles: 'image/jpeg,image/jpg,image/png',
+        acceptedFiles: 'image/png',
         dictInvalidFileType: 'uf:Archivo no soportado',
         maxfilesexceeded: function(file) {
             displayNotification('error', 'Ha superado el número máximo de imágenes a cargar.', 4000);
@@ -83,8 +82,9 @@ $(document).ready(function(){
             }
 
             if(_status==true) {
-                $.d3POST('/cjpg',{original:_original_file, original_size:_original_size, uploaded:_uploaded},function(data){
-
+                $.d3POST('/cpng',{original:_original_file, original_size:_original_size, uploaded:_uploaded},function(data){
+                    console.log(data);
+                    return false;
                     $('.fileprogress_proc').slideUp('fast');
                     $('#left-image').prop('src','/uploads/images/' + file.name);
                     $('#right-image').prop('src','/uploads/images/' + data.image);

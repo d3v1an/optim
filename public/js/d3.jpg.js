@@ -13,7 +13,6 @@ $(document).ready(function(){
 
     // Dropzone class:
     var _dz = new Dropzone("div#dropzone",{
-    //var _dz = $("div#dropzone").dropzone({
         url: "/ujpg",
         dictDefaultMessage: '<i class="fa fa-cloud-upload"></i><p><span>Arrastra tu imagen ó da click.</span></p>',
         autoProcessQueue: true,
@@ -22,7 +21,7 @@ $(document).ready(function(){
         maxFiles: 1,
         maxFilesize: 5, // 5MB
         dictFileTooBig: 'tb:La imagen es demasiado grande',
-        acceptedFiles: 'image/jpeg,image/jpg,image/png',
+        acceptedFiles: 'image/jpeg,image/jpg',
         dictInvalidFileType: 'uf:Archivo no soportado',
         maxfilesexceeded: function(file) {
             displayNotification('error', 'Ha superado el número máximo de imágenes a cargar.', 4000);
